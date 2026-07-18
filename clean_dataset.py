@@ -1,7 +1,7 @@
 """
 clean_dataset.py
 
-Project A: end-to-end pipeline for the Google Play Store User Reviews
+End-to-end pipeline for the Google Play Store User Reviews
 dataset, from raw CSV to a Snowflake-ready clean CSV, with an optional
 final step that loads the result directly into Snowflake.
 
@@ -37,7 +37,7 @@ from pathlib import Path
 
 import pandas as pd
 
-# Default paths assume this script lives in the Project A folder alongside
+# Default paths assume this script lives alongside
 # the raw and cleaned CSVs.
 DEFAULT_INPUT = "googleplaystore_user_reviews.csv"
 DEFAULT_OUTPUT = "googleplaystore_reviews_clean.csv"
@@ -224,7 +224,7 @@ def clean(input_path: str, output_path: str) -> pd.DataFrame:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Clean the Project A raw reviews CSV and optionally load it into Snowflake."
+        description="Clean the raw Google Play Store reviews CSV and optionally load it into Snowflake."
     )
     parser.add_argument("--input", default=DEFAULT_INPUT, help="Path to the raw CSV")
     parser.add_argument("--output", default=DEFAULT_OUTPUT, help="Path to write the clean CSV")
@@ -247,7 +247,7 @@ def main() -> None:
     if not Path(args.input).exists():
         raise FileNotFoundError(
             f"Could not find raw CSV at '{args.input}'. "
-            "Run this script from the Project A folder, or pass --input explicitly."
+            "Run this script from the repo root, or pass --input explicitly."
         )
 
     df = clean(args.input, args.output)

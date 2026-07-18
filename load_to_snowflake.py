@@ -1,7 +1,7 @@
 """
 load_to_snowflake.py
 
-Project A: loads a cleaned, Snowflake-ready CSV into Snowflake.
+Loads a cleaned, Snowflake-ready CSV into Snowflake.
 
 This is the tested logic from the Week 5 Snowflake session, refactored
 into an importable function so clean_dataset.py can call it directly as
